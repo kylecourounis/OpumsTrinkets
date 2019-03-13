@@ -2,11 +2,13 @@ package com.opum2.ot.blocks;
 
 import com.opum2.ot.utils.Logging;
 import com.opum2.ot.utils.ModTeleporter;
+import com.opum2.ot.utils.Utils;
 
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.text.TextFormatting;
 
 public class TileEntityTeleporter extends TileEntity {
 
@@ -19,10 +21,15 @@ public class TileEntityTeleporter extends TileEntity {
         if (this.pos.getY() <= 0)
         {
             Logging.info("Cannot teleport if Y level is <= 0!");
-        } 
+        }
         else
         {
-            ModTeleporter.teleport(player, this.dimension, this.pos, this.rotation = player.rotationYaw);
+            boolean teleported = ModTeleporter.teleport(player, this.dimension, this.pos, this.rotation = player.rotationYaw);
+            
+            if (!teleported)
+            {
+        		Utils.sendGameInfoMessage(player, TextFormatting.RED + "Teleport failed!");            	
+            }
         }
     }
 

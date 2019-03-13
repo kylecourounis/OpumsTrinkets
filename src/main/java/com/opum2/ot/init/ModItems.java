@@ -20,12 +20,12 @@ public class ModItems {
     
     public static void init()
     {
-        if (ConfigHandler.GENERAL.registry.items.enableBuilder)
+        if (ConfigHandler.REGISTRY.items.enableBuilder)
         {
             ModItems.ITEMS.add(ModItems.BUILDER);
         }
 
-        if (ConfigHandler.GENERAL.registry.blocks.enableTeleporter)
+        if (ConfigHandler.REGISTRY.blocks.enableTeleporter)
         {
             ModItems.ITEMS.add(ModItems.PORTAL_LINK);
         }

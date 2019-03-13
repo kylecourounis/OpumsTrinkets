@@ -21,35 +21,43 @@ public class ConfigHandler {
     @Config.LangKey("config.category:tweaks")
     public static final Tweaks TWEAKS = new Tweaks();
 
+    @Config.Name("registry")
+    @Config.LangKey("config.category:registry")
+    public static final Registry REGISTRY = new Registry();
+    
     public static class General 
     {
-        @Config.Name("registry")
-        @Config.LangKey("config.category:registry")
-        public final Registry registry = new Registry();
-
-        public static class Registry
+        @Config.Name("client")
+        @Config.LangKey("config.category:client")
+        public final Client client = new General.Client();
+        
+        public static class Client
         {
-            @Config.Name("blocks")
-            @Config.LangKey("config.category:blocks")
-            public final Blocks blocks = new Registry.Blocks();
+        }
+    }
+    
+    public static class Registry
+    {
+        @Config.Name("blocks")
+        @Config.LangKey("config.category:blocks")
+        public final Blocks blocks = new Registry.Blocks();
 
-            @Config.Name("items")
-            @Config.LangKey("config.category:items")
-            public final Items items = new Registry.Items();
+        @Config.Name("items")
+        @Config.LangKey("config.category:items")
+        public final Items items = new Registry.Items();
 
-            public static class Blocks 
-            {
-                @Config.LangKey("config.option:enableTeleporter")
-                @Config.Comment({ "Enable/disable the teleporter block.", "This will also toggle the item that is used to link the portals." })
-                public boolean enableTeleporter = true;
-            }
+        public static class Blocks 
+        {
+            @Config.LangKey("config.option:enableTeleporter")
+            @Config.Comment({ "Enable/disable the teleporter block.", "This will also toggle the item that is used to link the portals." })
+            public boolean enableTeleporter = true;
+        }
 
-            public static class Items
-            {
-                @Config.LangKey("config.option:enableBuilder")
-                @Config.Comment({ "Enable/disable the Builder item." })
-                public boolean enableBuilder = true;
-            }
+        public static class Items
+        {
+            @Config.LangKey("config.option:enableBuilder")
+            @Config.Comment({ "Enable/disable the Builder item." })
+            public boolean enableBuilder = true;
         }
     }
 

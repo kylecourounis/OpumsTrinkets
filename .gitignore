@@ -7,7 +7,7 @@ Thumbs.db
 
 ## ForgeGradle
 /run
-.launch
+*.launch
 
 ## eclipse
 /.settings
@@ -62,6 +62,3 @@ Temporary Items
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
-
-# Other
-forge-1.12.2-14.23.5.2815-changelog.txt

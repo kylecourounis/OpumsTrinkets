@@ -20,7 +20,7 @@ public class ModBlocks {
 
     public static void init()
     {
-        if (ConfigHandler.GENERAL.registry.blocks.enableTeleporter)
+        if (ConfigHandler.REGISTRY.blocks.enableTeleporter)
         {        	
             ModBlocks.registerBlock(ModBlocks.TELEPORTER);
         }
@@ -36,7 +36,7 @@ public class ModBlocks {
 
     private static void registerTileEntities()
     {
-        if (ConfigHandler.GENERAL.registry.blocks.enableTeleporter)
+        if (ConfigHandler.REGISTRY.blocks.enableTeleporter)
         {
             TileEntity.register(ModInfo.MOD_ID + ":teleporter", TileEntityTeleporter.class);
         }

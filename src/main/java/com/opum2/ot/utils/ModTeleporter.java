@@ -44,7 +44,7 @@ public class ModTeleporter extends Teleporter {
         ModTeleporter.teleport(player, 0, WorldManager.getSpawnCoords(player.getSpawnDimension()), WorldManager.getSpawnRotation());
     }
 
-    public static void teleport(EntityPlayerMP player, int dimension, BlockPos pos, float yaw)
+    public static boolean teleport(EntityPlayerMP player, int dimension, BlockPos pos, float yaw)
     {
     	int x = pos.getX();
     	int y = pos.getY();
@@ -64,7 +64,11 @@ public class ModTeleporter extends Teleporter {
         {
             player.timeUntilPortal = player.getPortalCooldown();
             WorldManager.transferPlayerToDimension(player, dimension, pos, yaw);
+            
+            return true;
         }
+        
+        return false;
     }
 
     public void buildPortal(World world, BlockPos pos)
