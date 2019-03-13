@@ -1,0 +1,9 @@
+{
+    "variants": {
+        "normal": { "model": "ot:teleporter" },
+        "facing=north": { "model": "ot:teleporter" },
+        "facing=south": { "model": "ot:teleporter", "y": 180 },
+        "facing=west":  { "model": "ot:teleporter", "y": 270 },
+        "facing=east":  { "model": "ot:teleporter", "y": 90 }
+    }
+}

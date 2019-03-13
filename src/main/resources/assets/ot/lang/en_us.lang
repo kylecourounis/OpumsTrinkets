@@ -1,0 +1,39 @@
+## Blocks ##
+tile.teleporter.name=Teleporter
+
+## Items ##
+item.builder.name=Builder
+item.portal_link.name=Portal Link
+item.bed_unlinker.name=Bed Unlinker
+
+## Config ##
+config.title=Opum's Trinkets Configuration
+
+# Categories
+config.category:general=General
+
+config.category:registry=Registry
+config.category:blocks=Blocks
+config.category:items=Items
+
+config.category:tweaks=Tweaks
+config.category:chat=Chat
+config.category:multiplayer=Multiplayer
+config.category:sleeping=Sleeping
+
+# Options
+config.option:enableTeleporter=Enable Teleporter
+config.option:enableBuilder=Enable Builder
+
+config.option:enableSleepingTweaks=Enable Sleeping Tweaks
+config.option:enableChatTweaks=Enable Chat Tweaks
+
+config.option:disableGiveResponse=Disable Give Response
+
+config.option:bannedWords=Banned Words
+
+config.option:sleepingSetsSpawn=Sleeping Sets Spawn
+config.option:setSpawnAnytime=Set Spawn Any Time
+
+## Creative Tab ##
+itemGroup.ot=Opum's Trinkets

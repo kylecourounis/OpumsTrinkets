@@ -1,0 +1,6 @@
+{
+    "parent": "ot:item/generic_handheld",
+    "textures": {
+        "layer0": "ot:items/bed_unlinker"
+    }
+}
