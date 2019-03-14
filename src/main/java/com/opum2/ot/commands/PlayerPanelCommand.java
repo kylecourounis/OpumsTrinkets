@@ -18,8 +18,7 @@ public class PlayerPanelCommand extends ModCommand {
 
     public PlayerPanelCommand()
     {
-        super("player",
-                "/player <name> - Opens up an panel with actions that can be executed on the specified player.");
+        super("player", "/player <name> - Opens up an panel with actions that can be executed on the specified player.");
     }
 
     @Override
@@ -28,7 +27,7 @@ public class PlayerPanelCommand extends ModCommand {
         if (args.length > 0)
         {
             EntityPlayer selectedPlayer = server.getPlayerList().getPlayerByUsername(args[0]);
-            OpumsTrinkets.proxy.openGui(new GuiPlayerPanel(selectedPlayer));
+            OpumsTrinkets.proxy.openGuiScreen(new GuiPlayerPanel(selectedPlayer));
         } 
         else
         {

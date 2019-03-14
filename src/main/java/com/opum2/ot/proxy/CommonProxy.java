@@ -25,7 +25,7 @@ public class CommonProxy implements IProxy {
     }
 
     @Override
-    public void openGui(GuiScreen screen)
+    public void openGuiScreen(GuiScreen screen)
     {
     }
 }

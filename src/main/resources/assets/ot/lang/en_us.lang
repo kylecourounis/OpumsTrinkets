@@ -3,6 +3,7 @@ tile.teleporter.name=Teleporter
 
 ## Items ##
 item.builder.name=Builder
+item.teleporter_item.name=Teleporter
 item.portal_link.name=Portal Link
 item.bed_unlinker.name=Bed Unlinker
 

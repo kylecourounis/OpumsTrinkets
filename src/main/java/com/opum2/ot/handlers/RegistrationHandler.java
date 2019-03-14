@@ -1,5 +1,6 @@
 package com.opum2.ot.handlers;
 
+import com.opum2.ot.ModInfo;
 import com.opum2.ot.OpumsTrinkets;
 import com.opum2.ot.init.ModBlocks;
 import com.opum2.ot.init.ModItems;
@@ -12,7 +13,7 @@ import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
-@Mod.EventBusSubscriber
+@Mod.EventBusSubscriber(modid = ModInfo.MOD_ID)
 public class RegistrationHandler {
 
     @SubscribeEvent

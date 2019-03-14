@@ -28,7 +28,7 @@ public class TileEntityTeleporter extends TileEntity {
             
             if (!teleported)
             {
-        		Utils.sendGameInfoMessage(player, TextFormatting.RED + "Teleport failed!");            	
+                Utils.sendGameInfoMessage(player, TextFormatting.RED + "Teleport failed!");            	
             }
         }
     }

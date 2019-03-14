@@ -32,7 +32,7 @@ public class ClientProxy extends CommonProxy {
     }
 
     @Override
-    public void openGui(GuiScreen screen)
+    public void openGuiScreen(GuiScreen screen)
     {
         Minecraft.getMinecraft().displayGuiScreen(screen);
     }

@@ -12,5 +12,5 @@ public interface IProxy
 
     public void registerRenders();
 
-    public void openGui(GuiScreen screen);
+    public void openGuiScreen(GuiScreen screen);
 }
