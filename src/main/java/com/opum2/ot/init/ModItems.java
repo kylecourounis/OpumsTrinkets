@@ -37,29 +37,29 @@ public class ModItems {
     
     public static void init()
     {
-        if (ConfigHandler.REGISTRY.items.enableBuilder)
-        {
-            ModItems.ITEMS.add(ModItems.BUILDER);
-        }
-
-        if (ConfigHandler.REGISTRY.blocks.enableTeleporter)
-        {
-            ModItems.ITEMS.add(ModItems.TELEPORTER);
-        }        
+        ModItems.addToggleableItem(ModItems.BUILDER, ConfigHandler.REGISTRY.items.enableBuilder);
         
-        if (ConfigHandler.REGISTRY.blocks.enableTeleporter)
-        {
-            ModItems.ITEMS.add(ModItems.PORTAL_LINK);
-        }
-
-        if (ConfigHandler.TWEAKS.enableSleepingTweaks || ConfigHandler.TWEAKS.sleeping.sleepingSetsSpawn)
-        {
-            ModItems.ITEMS.add(ModItems.BED_UNLINKER);
-        }
+        ModItems.addToggleableItem(ModItems.TELEPORTER, ConfigHandler.REGISTRY.blocks.enableTeleporter);
+        ModItems.addToggleableItem(ModItems.PORTAL_LINK, ConfigHandler.REGISTRY.blocks.enableTeleporter);
         
-        ModItems.ITEMS.add(ModItems.TEST_HELMET);
-        ModItems.ITEMS.add(ModItems.TEST_CHEST);
-        ModItems.ITEMS.add(ModItems.TEST_LEGS);
-        ModItems.ITEMS.add(ModItems.TEST_BOOTS);        
+        ModItems.addToggleableItem(ModItems.BED_UNLINKER, ConfigHandler.TWEAKS.enableSleepingTweaks || ConfigHandler.TWEAKS.sleeping.sleepingSetsSpawn);
+        
+        ModItems.addItem(ModItems.TEST_HELMET);
+        ModItems.addItem(ModItems.TEST_CHEST);
+        ModItems.addItem(ModItems.TEST_LEGS);
+        ModItems.addItem(ModItems.TEST_BOOTS);        
+    }
+
+    public static void addItem(Item item)
+    {
+        ModItems.ITEMS.add(item);
+    }
+    
+    public static void addToggleableItem(Item item, boolean register)
+    {
+        if (register)
+        {
+            ModItems.addItem(item);
+        }
     }
 }

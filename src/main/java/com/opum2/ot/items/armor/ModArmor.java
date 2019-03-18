@@ -26,7 +26,7 @@ public class ModArmor extends ItemArmor {
     @Override
     public void onArmorTick(World world, EntityPlayer player, ItemStack stack)
     {
-        this.onUpdateEquiped(stack, world, player);        
+        this.onUpdateEquiped(stack, world, player); 
     }
     
     public void onUpdateEquiped(ItemStack stack, World world, EntityLivingBase entity)

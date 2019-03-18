@@ -4,6 +4,7 @@ import com.opum2.ot.handlers.ConfigHandler;
 import com.opum2.ot.init.ModItems;
 import com.opum2.ot.utils.Utils;
 
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
@@ -19,14 +20,19 @@ public class PlayerEvents {
     @SubscribeEvent
     public void onLivingJump(LivingEvent.LivingJumpEvent event) 
     {
-        EntityPlayer player = (EntityPlayer)event.getEntityLiving();        
-        ItemStack stack = player.getItemStackFromSlot(EntityEquipmentSlot.FEET);
+        EntityLivingBase entity = event.getEntityLiving();
         
-        if (stack != null) 
-        {
-            if (stack.getItem() == ModItems.TEST_BOOTS && !player.isSneaking()) 
+        if (entity instanceof EntityPlayer)
+        {            
+            EntityPlayer player = (EntityPlayer)entity;        
+            ItemStack stack = player.getItemStackFromSlot(EntityEquipmentSlot.FEET);
+            
+            if (stack != null) 
             {
-                player.motionY += 0.35D;
+                if (stack.getItem() == ModItems.TEST_BOOTS && !player.isSneaking()) 
+                {
+                    player.motionY += 0.35D;
+                }
             }
         }
     }

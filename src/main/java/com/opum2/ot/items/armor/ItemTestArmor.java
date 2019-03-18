@@ -33,71 +33,79 @@ public class ItemTestArmor extends ModArmor {
     @Override
     public void onUpdateEquiped(ItemStack stack, World world, EntityLivingBase entity)
     {
-        EntityPlayer player = (EntityPlayer)entity;
-
-        if (player.getItemStackFromSlot(EntityEquipmentSlot.CHEST).getItem() == ModItems.TEST_CHEST && !player.isCreative())
+        if (entity instanceof EntityPlayer)
         {
-            player.capabilities.allowFlying = true;
-            player.capabilities.setFlySpeed(0.075F);
-        }
-        else if (!player.isCreative())
-        {
-            player.capabilities.isFlying = false;
-            player.capabilities.allowFlying = false;
-            player.capabilities.setFlySpeed(0.05F);
-        }
-        
-        if (player.getItemStackFromSlot(EntityEquipmentSlot.FEET).getItem() == ModItems.TEST_BOOTS)
-        {
-            player.capabilities.setPlayerWalkSpeed(0.15F);
+            EntityPlayer player = (EntityPlayer)entity;
             
-            boolean onGround = false;
-            
-            if (entity.fallDistance >= 3.0F)
+            if (player.getItemStackFromSlot(EntityEquipmentSlot.CHEST).getItem() == ModItems.TEST_CHEST)
             {
-                entity.fallDistance = 0.0F;
-                
-                if (world.isRemote)
-                {
-                    for (int i = 0; i < 3; ++i)
-                    {
-                        world.spawnParticle(EnumParticleTypes.CLOUD, entity.posX, entity.posY - 2.0D, entity.posZ,
-                                (double) ((Item.itemRand.nextFloat() - 0.5F) / 2.0F), -0.5D,
-                                (double) ((Item.itemRand.nextFloat() - 0.5F) / 2.0F));
-                    }
-                }
-            }
-
-            if (entity.isSprinting() && world.isRemote)
-            {
-                world.spawnParticle(EnumParticleTypes.CLOUD, entity.posX, entity.posY - 1.5D, entity.posZ,
-                        (double) ((Item.itemRand.nextFloat() - 0.5F) / 2.0F), 0.1D,
-                        (double) ((Item.itemRand.nextFloat() - 0.5F) / 2.0F));
-            }
-
-            if (!entity.onGround && entity instanceof EntityPlayer)
-            {
-                entity.jumpMovementFactor += 0.028F;
-            }
-
-            if (entity.collidedHorizontally)
-            {
-                entity.stepHeight = 1.0F;
+                player.capabilities.allowFlying = true;
+                player.capabilities.setFlySpeed(0.075F);
             }
             else
             {
-                entity.stepHeight = 0.5F;
+                player.capabilities.setFlySpeed(0.05F);
+                
+                if (!player.isCreative())
+                {
+                    player.capabilities.isFlying = false;
+                    player.capabilities.allowFlying = false;                
+                }
+            }
+            
+            if (player.getItemStackFromSlot(EntityEquipmentSlot.FEET).getItem() == ModItems.TEST_BOOTS)
+            {
+                player.capabilities.setPlayerWalkSpeed(0.15F);
+                
+                boolean onGround = false;
+                
+                if (player.fallDistance >= 3.0F)
+                {
+                    player.fallDistance = 0.0F;
+                    
+                    if (world.isRemote)
+                    {
+                        for (int i = 0; i < 3; ++i)
+                        {
+                            world.spawnParticle(EnumParticleTypes.CLOUD, entity.posX, entity.posY - 2.0D, entity.posZ,
+                                    (double) ((Item.itemRand.nextFloat() - 0.5F) / 2.0F), -0.5D,
+                                    (double) ((Item.itemRand.nextFloat() - 0.5F) / 2.0F));
+                        }
+                    }
+                }
+
+                if (entity.isSprinting() && world.isRemote)
+                {
+                    world.spawnParticle(EnumParticleTypes.CLOUD, entity.posX, entity.posY - 1.5D, entity.posZ,
+                            (double) ((Item.itemRand.nextFloat() - 0.5F) / 2.0F), 0.1D,
+                            (double) ((Item.itemRand.nextFloat() - 0.5F) / 2.0F));
+                }
+
+                if (!player.onGround)
+                {
+                    player.jumpMovementFactor += 0.028F;
+                }
+
+                if (player.collidedHorizontally)
+                {
+                    player.stepHeight = 1.0F;
+                }
+                else
+                {
+                    player.stepHeight = 0.5F;
+                }
+            }
+            else
+            {
+                player.capabilities.setPlayerWalkSpeed(0.1F);
             }
         }
-        else
-        {
-            player.capabilities.setPlayerWalkSpeed(0.1F);
-        }
     }
-    
+
+    /* @Override
     public void onCreated(ItemStack stack, World world, EntityPlayer player)
     {
-    }
+    } */
 
     public Multimap getItemAttributeModifiers()
     {
